@@ -8461,7 +8461,7 @@ var login = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:8000/api/v1/users/login',
+              url: '/api/v1/users/login',
               data: {
                 email: email,
                 password: password
@@ -8514,7 +8514,7 @@ var logout = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'GET',
-              url: 'http://127.0.0.1:8000/api/v1/users/logout'
+              url: '/api/v1/users/logout'
             });
 
           case 3:
@@ -8634,7 +8634,7 @@ var signup = (0, _catchAsync.default)( /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:8000/api/v1/users/signup',
+              url: '/api/v1/users/signup',
               data: data
             });
 
@@ -8704,7 +8704,7 @@ var addHome = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:8000/api/v1/homes',
+              url: '/api/v1/homes',
               data: data
             });
 
@@ -8757,7 +8757,7 @@ var updateHome = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'PATCH',
-              url: "http://127.0.0.1:8000/api/v1/homes/".concat(homeId),
+              url: "/api/v1/homes/".concat(homeId),
               data: form
             });
 
@@ -8808,7 +8808,7 @@ var deleteHome = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: "http://127.0.0.1:8000/api/v1/homes/".concat(homeId)
+              url: "/api/v1/homes/".concat(homeId)
             });
 
           case 3:
@@ -8854,7 +8854,7 @@ var uploadHomeImages = /*#__PURE__*/function () {
             _context4.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: "http://127.0.0.1:8000/api/v1/homes/upload-home-images/".concat(homeId)
+              url: "/api/v1/homes/upload-home-images/".concat(homeId)
             });
 
           case 3:
@@ -8923,7 +8923,7 @@ var passwordChange = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'PATCH',
-              url: 'http://127.0.0.1:8000/api/v1/users/updatePassword',
+              url: '/api/v1/users/updatePassword',
               data: data
             });
 
@@ -8971,7 +8971,7 @@ var deleteAccount = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: 'http://127.0.0.1:8000/api/v1/users/deleteMe'
+              url: '/api/v1/users/deleteMe'
             });
 
           case 3:
@@ -9036,7 +9036,7 @@ var forgotPassword = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://127.0.0.1:8000/api/v1/users/forgotPassword',
+              url: '/api/v1/users/forgotPassword',
               data: data
             });
 
@@ -9082,7 +9082,7 @@ var resetPassword = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'PATCH',
-              url: 'http://127.0.0.1:8000/api/v1/users/resetPassword',
+              url: '/api/v1/users/resetPassword',
               data: data
             });
 
@@ -9145,7 +9145,7 @@ var updateUser = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'PATCH',
-              url: 'http://127.0.0.1:8000/api/v1/users/updateMe',
+              url: '/api/v1/users/updateMe',
               data: data
             });
 
@@ -9210,7 +9210,7 @@ var deleteImage = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'DELETE',
-              url: 'http://127.0.0.1:8000/api/v1/homes/deleteImage',
+              url: '/api/v1/homes/deleteImage',
               data: data
             });
 

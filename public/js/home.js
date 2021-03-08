@@ -5,7 +5,7 @@ export const addHome = async data => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:8000/api/v1/homes',
+            url: '/api/v1/homes',
             data
         })
 
@@ -30,7 +30,7 @@ export const updateHome = async (form, homeId) => {
     try {
         const res = await axios({
             method: 'PATCH',
-            url: `http://127.0.0.1:8000/api/v1/homes/${homeId}`,
+            url: `/api/v1/homes/${homeId}`,
             data: form
         })
 
@@ -52,7 +52,7 @@ export const deleteHome = async homeId => {
     try {
         const res = await axios({
             method: 'DELETE',
-            url: `http://127.0.0.1:8000/api/v1/homes/${homeId}`,
+            url: `/api/v1/homes/${homeId}`,
         }) 
 
         showAlert('success', 'Home deleted!')
@@ -72,7 +72,7 @@ export const uploadHomeImages = async homeId => {
     try {
         const res = await axios({
             method: 'POST',
-            url: `http://127.0.0.1:8000/api/v1/homes/upload-home-images/${homeId}`,
+            url: `/api/v1/homes/upload-home-images/${homeId}`,
         })
 
         showAlert('success', 'Images added!')
