@@ -1,0 +1,73 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/style.css')
+    link(rel='stylesheet' href='/static/css/homeProfile.css')
+
+block header
+    include _header
+
+block content
+    .info__container.home__profile
+        .profile
+            img.profile__picture(src=`/static/img/users/${home.userId.photo}` alt='User profile picture')
+            h2= `${home.userId.firstName} ${home.userId.lastName}` 
+            #phone.icon__section.mt
+                .icon__info
+                    img(src='/static/image/call-outline.svg' alt='Phone icon')
+                    p= `${home.userId.phone1}` 
+                if(home.userId.phone2)
+                    .icon__info
+                        img(src='/static/image/call-outline.svg' alt='Phone icon')
+                        p= `${home.userId.phone2}`
+        .flat__info
+            h2= `${home.block} - ${home.flatNumber}` 
+            if(owner || admin || superUser)
+                .button__section
+                    a.edit--link(href=`/edit-home/page1/${home.id}`) Edit home
+                    a.delete--link(href=`/delete/home/${home.id}`) Delete home
+            .icon__section
+                .icon__info
+                    img(src='/static/image/bedroom.svg' alt='Bedroom icon')
+                    b= `${home.bedRoom}`
+                    p Bedroom
+                .icon__info
+                    img(src='/static/image/bathroom.svg' alt='Bathroom icon')
+                    b= `${home.bathRoom}`
+                    p Bathroom
+                .icon__info
+                    img(src='/static/image/trending-up-outline.svg' alt='Floor icon')
+                    b= `${home.floor}`
+                    p Floor
+            .payment__info
+                p
+                    b.payment__text Rent: 
+                    | #{home.rentInINRFormat}
+                    b
+                p.mt
+                    b.payment__text Advance: 
+                    | #{home.advanceInINRFormat}
+                    b
+        .allowance__container
+            if(home.family || home.food || home.negotiable)
+                .label#constraint Please note:
+            if home.family
+                .label.info Family
+            if home.food
+                .label.success Vegetarian
+            if home.negotiable
+                .label.danger Negotiable
+            if(!home.family && !home.food && !home.negotiable)
+                .label.success Ready to move in
+    h3.center.center--mt.center--mb Images
+    if(owner)
+        a.images--edit.edit--link(href=`/edit-home/images/${home.id}`) Edit images
+    .gallery
+        each image in home.images
+            figure.gallery__item
+                img.home__image(src=`/static/img/homes/${image}` alt='Home image' data-id=image)
+    .modal
+        .modal--content
+            span.btn--close &times;
+            .modal__image--wrapper
+                img#modal--image

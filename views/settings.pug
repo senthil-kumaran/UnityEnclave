@@ -1,0 +1,69 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/settings.css')
+    link(rel='stylesheet' href='/static/css/alert.css')
+
+block content
+    .container
+        .header.mb
+            a.back(href='/allHomes') 
+                img(src="/static/image/arrow-back-outline.svg", alt="Back button")
+            h2(style='margin-bottom: .5rem;') Profile
+            if user.role === 'home_owner'
+                p Home owner
+            else if user.role === 'admin'
+                p Admin 
+            else if user.role === 'super_user'
+                a(href='/statistics' style='font-size: 1.2rem; text-decoration: none; color: #309259;') Super User    
+        .profile__Section.shadow.mb.card__outline
+            .image__section
+                img.profile__picture.round(src=`/static/img/users/${user.photo}` alt='Profile picture')
+            .info__section
+                p(style='margin-bottom: .3rem;') #{user.firstName} #{user.lastName}
+                .flex__container
+                    img.icon(src='/static/image/mail-outline.svg' alt='Mail icon')
+                    h4 #{user.email}
+            .edit__section 
+                a.edit--link(href='/edit-profile') Edit profile
+                a.edit--link(href='/delete/me') Delete profile
+        if(user.role !== 'user')
+            .home__list.shadow.mb.card__outline
+                if(homes.length === 0)
+                    p No homes added yet
+            each home in homes
+                    a.flex__container.style__flex.home__link(href=`/home/${home.id}`, data-id=home.id)
+                        img(src="/static/image/home-outline.svg", alt="Home icon" class="home__icon")
+                        p.block #{home.block}-
+                        p.flatNumber #{home.flatNumber}
+                        //- p.rent #{home.rent}
+                        //- p.advance #{home.advance}
+                        img.flex--last(src="/static/image/create-outline.svg", alt="Edit icon", class='home__list--icon')
+                    //- hr
+        p(style='margin-bottom: .5rem;') Other settings
+        .other__settings.shadow.mb.card__outline
+            #tmp
+                button.collapsible.password__container Password
+                form.account__password--form.collapsible--content(action='')
+                    .form__elements
+                        input#current__password(type='password' required)
+                        label.label(for='current__password')
+                            span.label--content Current Password
+                    .form__elements
+                        input#new__password(type='password' required)
+                        label.label(for='new__password')
+                            span.label--content New Password
+                    .form__elements
+                        input#confirm__password(type='password' required)
+                        label.label(for='confirm__password')
+                            span.label--content Confirm Password
+                    .section__buttons
+                        //- button.forgot Forgot password?
+                        a.forgot(href="/forget-password") Forgot password?
+                        button.save Save changes
+            button.collapsible.support Support
+            .collapsible--content 
+                p Ion Soft, Inc - ionsoft21@gmail.com
+
+block script
+    script(src='/static/js/settingsAction.js')

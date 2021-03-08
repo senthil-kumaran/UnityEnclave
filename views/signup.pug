@@ -1,0 +1,43 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/signup.css')
+    link(rel='stylesheet' href='/static/css/alert.css')
+
+block content
+    .container
+        h1 SBIOA Unity Enclave
+        h2 Welcome! Make your first move by signing up.
+
+        form.signupForm
+            .card
+                .row
+                    label First Name
+                    input(type='text' id='firstName')
+                .row
+                    label Last Name
+                    input(type='text' id='lastName')
+                .row
+                    label Phone1
+                    input(type='text' id='phone1')
+                .row
+                    label Phone2
+                    input(type='text' id='phone2')
+                .row
+                    label Email
+                    input(type='text' id='email')
+                .row
+                    label Password (6 or more characters)
+                    input(type='password' id='password')
+                .row
+                    label Confirm Password
+                    input(type='password' id='confirmPassword')
+                .row
+                    input(type='checkbox' id='role' value='home_owner')
+                    label Select if you are an home owner
+
+                button.signin-btn Join
+
+            .hr-line
+            p.center.grey-text Already a user? 
+                a(href='/login' style='color: #0483a5; text-decoration: none') Log In

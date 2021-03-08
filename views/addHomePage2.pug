@@ -1,0 +1,57 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/style.css')
+    link(rel='stylesheet' href='/static/css/addHomePage2.css')
+    link(rel='stylesheet' href='/static/css/alert.css')
+
+block header
+    include _header
+
+block content
+    .wrapping--container
+        h1(style='font-size: 2.3rem;') Add your home details
+        h2.steps(style='margin-top: 1.5rem;')
+            p.green Step 2 &nbsp
+            p.grey of &nbsp 2
+        form.addHome__form--page2
+            #bedroom.form__elements
+                input(type='text' required='' name='bedRoom' id='bedRoom')
+                label.label(for='bedRoom')
+                    span.label__content Bedroom
+            #bathroom.form__elements
+                input(type='text' required='' name='bathRoom' id='bathRoom')
+                label.label(for='bathRoom')
+                    span.label__content Bathroom
+            #tenants.form__elements.option__elements
+                label.options--header Preferred tenants &nbsp
+                    i (Optional)
+                div
+                    input(type='radio' id='family' name='family')
+                    label.options(for='family') Family
+                div
+                    input(type='radio' id='not-family' name='family')
+                    label.options(for='not-family') Any
+            #food.form__elements.option__elements.mt
+                label.options--header Preferred food &nbsp
+                    i (Optional)
+                div
+                    input(type='radio' id='veg' name='food')
+                    label.options(for='veg') Vegitarian
+                div
+                    input(type='radio' id='not-veg' name='food')
+                    label.options(for='not-veg') Any
+            #rent__negotiable.form__elements.option__elements.mt
+                label.options--header Rent negotiable &nbsp
+                    i (Optional)
+                div
+                    input(type='radio' id='negotiable' name='negotiable')
+                    label.options(for='negotiable') Yes
+                div
+                    input(type='radio' id='not-negotiable' name='negotiable')
+                    label.options(for='not-negotiable') No
+            //- #images__upload.form__elements.option__elements.mt
+            //-     label.custom-file-upload.mt(for='images')
+            //-         p(style="font-size: 1.6rem;") Upload Images
+            //-     input.mt(type='file', multiple, accept='image/*', name='images', id='images')
+            button.btn.mt--large.addHomeBtn(type='submit') Add your home

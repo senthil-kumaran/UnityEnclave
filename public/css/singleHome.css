@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+body {
+    font-size: 62.5%;
+    background-color: #ffffff;
+    font-size: 1.3rem;
+}
+
+.flex__container {
+    display: flex;
+    gap: 2rem;
+}
+
+.flex__container img {
+    width: 2rem;
+}
+
+.home__list--icon {
+    width: 1rem;
+}

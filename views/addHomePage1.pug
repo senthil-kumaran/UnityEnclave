@@ -1,0 +1,39 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/style.css')
+    link(rel='stylesheet' href='/static/css/addHomePage1.css')
+    link(rel='stylesheet' href='/static/css/alert.css')
+
+block header
+    include _header
+
+block content
+    .wrapping--container
+        h1(style='font-size: 2.3rem;') Add your home details
+        h2.steps(style='margin-top: 1.5rem;')
+            p.green Step 1 &nbsp
+            p.grey of &nbsp 2
+        .wrapper
+            form.addHome__form--page1
+                .form__elements
+                    input.block(type='text' required='' id='block' name='block')
+                    label.label(for='block')
+                        span.label__content Block Name
+                .form__elements
+                    input.flat(type='text' required='' id='flat' name='block')
+                    label.label(for='flat')
+                        span.label__content Flat Number
+                .form__elements
+                    input.floor(type='text' required='' id='floor' name='block')
+                    label.label(for='floor')
+                        span.label__content Floor Number
+                .form__elements
+                    input.rent(type='text' required='' id='rent' name='block')
+                    label.label(for='rent')
+                        span.label__content Rent expected
+                .form__elements
+                    input.advance(type='text' required='' id='advance' name='block')
+                    label.label(for='advance')
+                        span.label__content Advance expected
+                button.btn.btn--next(type='submit') Next

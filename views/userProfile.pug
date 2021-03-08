@@ -1,0 +1,41 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/signup.css')
+    link(rel='stylesheet' href='/static/css/style.css')
+    link(rel='stylesheet' href='/static/css/alert.css')
+
+block header
+    include _header
+
+block marquee
+    include _marquee
+
+block content
+    .container
+        h1 Edit your personal information
+
+        form.form--profileEdit
+            .card
+                .row.photoSection 
+                    img.round.mb(src=`/static/img/users/${user.photo}`, alt='Profile picture' id='profile__photo')
+                    label.custom-file-upload(for='photo')
+                        p Change profile picture
+                    input.file-upload(type='file', accept='image/*', name='photo', id='photo')
+                .row
+                    label(for="firstName") First Name
+                    input(type='text' id='firstName' value=user.firstName)
+                .row
+                    label(for="lastName") Last Name
+                    input(type='text' id='lastName' value=user.lastName)
+                .row
+                    label(for="phone1") Phone1
+                    input(type='text' id='phone1' value=user.phone1)
+                .row
+                    label(for="phone2") Phone2
+                    input(type='text' id='phone2' value=user.phone2)
+                .row
+                    label(for="email") Email
+                    input(type='text' id='email' value=user.email)
+
+                button(type='submit').signin-btn Save changes

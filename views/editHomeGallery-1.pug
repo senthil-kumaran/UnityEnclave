@@ -1,0 +1,27 @@
+extends base
+
+block linkcontent
+    //- link(rel='stylesheet' href='css/style.css')
+    //- link(rel='stylesheet' href='css/homeProfile.css')
+    link(rel='stylesheet' href='/static/css/style.css')
+    link(rel='stylesheet' href='/static/css/homeProfile.css')
+
+block header 
+    include _header
+
+block content 
+    h3.center.center--mt.center--mb Your home images #{home.images.length} of 15 
+    .gallery.home__images--container(data-id=home.id)
+        each image in home.images
+            figure.gallery__item
+                .image__section
+                    img.home__image(src=`/static/img/homes/${image}` alt='Home image' data-id=image)
+                    button.btn--delete.delete--link(data-id=image style="margin-top: 1rem;") Delete
+    - for(var i=0; i<(15-home.images.length); i++)
+        form.editHome__form--page3(action=`http://127.0.0.1:8000/api/v1/homes/upload-home-images/${homeId}` method='POST' enctype='multipart/form-data')
+            #images__upload.form__elements.option__elements.mt
+                label.custom-file-upload.mt(for='images')
+                    p(style="font-size: 1.6rem;") Upload Images
+                input.mt(type='file', multiple='multiple', accept='image/*', name='images', id='images')
+            button.btn.mt--large(type='submit' data-id=homeId) Update home
+            a.btn.mt--large.ml--large(href='/allHomes') Cancel

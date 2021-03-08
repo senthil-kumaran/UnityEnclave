@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    /* font-family: sans-serif; */
+    height: 100vh;
+    /* padding-top: 6rem;  */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    /* display: grid;
+    justify-content: center;
+    justify-items: center; */
+}
+
+.wrapping--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3.2rem; 
+}
+
+h1 {
+    color: #0E76A8;
+}
+
+h2 p {
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+.green {
+    color: #309259;
+}
+
+.grey {
+    color: grey;
+}
+
+.wrapper {
+    overflow-y: visible;
+}
+
+.addHome__form--page1, .editHome__form--page1 {
+    display: grid;
+    width: 40vw;
+    padding-top: 3rem;
+    overflow-x: hidden;
+    margin-bottom: 3rem;
+}
+
+.form__elements {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.form__elements input {
+    width: 100%;
+    border: none;
+    padding-top: 2rem;
+    outline: none;
+}
+
+.label {
+    width: 100%;
+    height: 100%;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+
+.label::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    /* border-bottom: 3px solid #5fa8d3; */
+    border-bottom: 3px solid #0E76A8;
+    position: absolute;
+    left: 0;
+    bottom: -1;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+}
+
+.label__content {
+    position: absolute;
+    bottom: .6rem;
+    left: 0;
+    transition: all .3s ease-out;
+    font-size: 1.6rem;
+}
+
+input:required {
+    box-shadow:none;
+}
+
+.form__elements input:focus + .label .label__content, 
+.form__elements input:valid + .label .label__content {
+    transform: translateY(-150%); 
+    /* color: #5fa8d3; */
+    color: #0E76A8;
+}
+
+.form__elements input:focus + .label::after {
+    transform: translateX(0);
+}
+
+.btn {
+    justify-self: end;
+    color: #fff;
+    background-color: #309259;
+    padding: .4rem .8rem;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2.5px;
+    font-weight: 300;
+    font-size: 12pt;
+    border-radius: 5px;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .addHome__form--page2 {
+        width: 70%;
+    }
+
+    .wrapping--container {
+        justify-content: start;
+    }
+}
+
+.steps p {
+    font-size: 1.8rem;
+}

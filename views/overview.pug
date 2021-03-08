@@ -1,0 +1,146 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Mobile View
+  link(rel='stylesheet' href='/static/css/overview.css')
+header
+  .logo__section
+    img(src='/static/image/overview/ue_logo.png' alt='Logo')
+    h1.color--primary SBIOA Unity Enclave
+  .option--button
+    .options
+      a(href='/allHomes') Homes
+      a Support
+    label.nav--button(for='icon')
+      span#icon.navigation__icon &nbsp;
+    .dropdown--content.shade
+      //- a(href='/allHomes' style='margin-bottom: 1.2rem;') Homes
+      a(href='/allHomes') Homes
+      a Support
+main
+  section
+    article#cover__article.shade
+      .imagecover__section
+        figure
+          img.cover__image(src='/static/image/overview/drone-view.jpeg' alt='Cover image')
+      .info__section
+        .grid--item
+          p
+            b.color--primary Area
+          p 32,000Sq.ft
+        .grid--item
+          p
+            b.color--primary Homes
+          p 1875
+        .grid--item
+          p
+            b.color--primary Location
+          p Mambakkam, Chennai
+    article#configuration__article
+      h2.center Configuration
+      #configuration__article--grid.mt
+        .card
+          h2 1Bhk
+          h3 RERA carpet area - 683-923 Sq.ft.(63-85 Sq.m)
+          h3 Deck Area - 33-45 Sq.ft.(4.18 Sq.m.)
+        .card
+          h2 2Bhk
+          h3 RERA carpet area - 683-923 Sq.ft.(63-85 Sq.m)
+          h3 Deck Area - 33-45 Sq.ft.(4.18 Sq.m.)
+        .card
+          h2 2.5Bhk
+          h3 RERA carpet area - 683-923 Sq.ft.(63-85 Sq.m)
+          h3 Deck Area - 33-45 Sq.ft.(4.18 Sq.m.)
+        .card
+          h2 3Bhk
+          h3 RERA carpet area - 683-923 Sq.ft.(63-85 Sq.m)
+          h3 Deck Area - 33-45 Sq.ft.(4.18 Sq.m.)
+    article#walkthrough__article.shade
+      h2 Project Walkthrough
+      .walkthrough--options
+        button#video--btn Video
+        button#gallery--btn Gallery
+      .media__section
+        iframe(src='https://www.youtube.com/embed/xNheZ3_pU6Y' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+      .gallery__section
+        .gallery--grid
+          figure
+            img(src='/static/image/overview/Screenshot(9).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(10).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(11).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(12).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(13).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(14).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(15).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(16).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(17).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(18).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(20).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(21).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(22).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(23).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(24).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(26).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(27).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(32).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(33).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(34).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(35).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(38).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(39).png' alt='Gallery image')
+          figure
+            img(src='/static/image/overview/Screenshot(37).png' alt='Gallery image')
+    article#highlight__article
+      h2.center Project Highlight
+      .hightlight__container.shade
+        .hightlight__items
+          img(src='/static/image/overview/swimming-man.svg' alt='highlight icon')
+          h2 Swimming pool
+        .hightlight__items
+          img(src='/static/image/overview/3d-buildings.svg' alt='highlight icon')
+          h2 Commercial buildings
+        .hightlight__items
+          img(src='/static/image/overview/cctv.svg' alt='highlight icon')
+          h2 Security
+        .hightlight__items
+          img(src='/static/image/overview/landscape.svg' alt='highlight icon')
+          h2 Landscapes
+    article#advantage__article
+      h2 Looking for a rental home?
+      a(href='/allHomes').custom-btn.btn-11
+        | Explore Homes
+        .dot
+    article#neighbourhood__article.shade
+      h2.center Know Your Neighbourhood
+      #map.mt
+footer
+  h2.color--light Ion Soft, Inc
+  p.color--light ionsoft21@gmail.com
+script(src='/static/js/navigation.js')
+script(src='/static/js/overview_gallery.js')
+script(src='/static/js/map.js')
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBg_HuJOcEi3DGf2-CMP_QG03yKa3TrO0Q&callback=initMap&libraries=&v=weekly' async='')

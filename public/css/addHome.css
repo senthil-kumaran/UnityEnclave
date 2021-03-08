@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+}
+
+.container {
+    width: 30%;
+    margin: 5rem auto;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    justify-content: center;
+    position: relative;
+    background-color: beige;
+}
+
+.icon {
+    width: 2rem;
+    position: absolute;
+    top: -2%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+form {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    display: grid;
+    justify-items: center;
+}
+
+input {
+    display: block;
+    padding: 1rem;
+    margin: 1rem;
+    width: 100%;
+}
+
+.radio__buttons {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 2rem;
+    align-items: center;
+    width: 100%;
+}
+
+/* #food, #negotiable {
+    margin: 0;
+} */
+
+#food, .food--label {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+#negotiable, .negotiable--label {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+}
+
+.food--label, .negotiable--label {
+    font-size: 1.4rem;
+    justify-self: start;
+}
+
+#food, #negotiable {
+    justify-self: end;
+}
+
+button {
+    display: block;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+}

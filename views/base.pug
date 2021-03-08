@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport' content='width=device-width, initial-scale=1')
+        block linkcontent
+            link(rel='stylesheet' href='/static/css/style.css')
+        title SBIOA | #{page}
+    
+    body       
+        //- HEADER
+        block header
+
+         //- MARQUEE
+        block marquee
+
+        //- CONTENT
+        block content    
+
+        //- FOOTER
+        block footer
+
+        //- SCRIPT
+        block script
+        script(src='/static/js/bundle.js')

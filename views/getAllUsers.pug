@@ -1,0 +1,23 @@
+extends base
+
+block header
+    include _header
+
+block marquee
+    include _marquee
+
+block content
+    .content__container
+        p All Users
+        table
+            tr
+                th Owner Name
+                th Flat
+
+            each home in homes
+                tr
+                    td #{home.userId.firstName} #{home.userId.lastName}
+                    td= home.doorNumber
+
+block footer 
+    include _floatingMenu                        

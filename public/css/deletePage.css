@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    display: grid;
+    justify-items: center;
+}
+
+.container {
+    margin-top: 4rem;
+    width: 50%;
+    display: grid;
+    justify-items: center;
+    row-gap: 2rem;
+    padding: 2rem;
+}
+
+.container h2 {
+    color: #0E76A8;
+    grid-row: 1 / 2;
+    font-size: 2rem;
+}
+
+.container p {
+    color: grey;
+    grid-row: 2 / 3;
+    font-size: 1.6rem;
+}
+
+.options__section {
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 2rem;
+}
+
+.option--delete, .option--cancel {
+    padding: .4rem 1.2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.option--delete {
+    border: 1.5px solid #6f8992;
+    color: #ffffff;
+    background-color: #0E76A8;
+}
+
+.option--cancel {
+    border: none;
+    color: grey;
+    background-color: #ffffff;
+}
+
+.shadow {
+    position: relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}

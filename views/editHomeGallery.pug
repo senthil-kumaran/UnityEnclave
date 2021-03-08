@@ -1,0 +1,35 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/style.css')
+    link(rel='stylesheet' href='/static/css/homeProfile.css')
+    link(rel='stylesheet' href='/static/css/newStyle.css')
+
+block header 
+    include _header
+
+block content 
+    h3.center.center--mt.center--mb Your home images #{home.images.length} of 15 
+    .gallery.home__images--container(data-id=home.id)
+        each image in home.images
+            figure.gallery__item
+                .image__section
+                    img.home__image(src=`/static/img/homes/${image}` alt='Home image' data-id=image)
+                    button.btn--delete.delete--link.image__delete--btn(data-id=image style="margin-top: 1rem;") Delete
+    form#file-upload-form.uploader.align--left(action=`http://127.0.0.1:8000/api/v1/homes/upload-home-images/${home.id}` method='POST' enctype='multipart/form-data')
+        input#file-upload(type='file' name='images' accept='image/*' multiple='multiple')
+        label#file-drag(for='file-upload')
+            img#file-image.hidden(src='#' alt='Preview')
+            #start
+                i.fa.fa-download(aria-hidden='true')
+                div Add images (available space #{15-(home.images.length)})
+                #notimage.hidden Please select an image
+                span#file-upload-btn.btn.btn-primary Select images
+            #response.hidden
+                #messages
+                progress#file-progress.progress(value='0')
+                    span 0
+                    | %
+        .button__section            
+            button.btn.btn-primary(type='submit') Add new images
+            a.btn(href='/allHomes') Cancel            

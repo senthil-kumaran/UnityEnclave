@@ -1,0 +1,36 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/style.css')
+    link(rel='stylesheet' href='/static/css/addHomePage2.css')
+    //- link(rel='stylesheet' href='/static/css/alert.css')
+    link(rel='stylesheet' href='/static/css/newStyle.css')
+
+block header
+    include _header
+
+block content
+    .wrapping--container
+        h1(style='font-size: 2.3rem;') Add your home details
+        h2.steps(style='margin-top: 1.5rem;')
+            p.green Step 3 &nbsp
+            p.grey of &nbsp 3
+        h2.steps(style='margin-top: 1.5rem;')
+            p Upload your home images or skip.
+    form#file-upload-form.uploader(action=`http://127.0.0.1:8000/api/v1/homes/upload-home-images/${homeId}` method='POST' enctype='multipart/form-data')
+        input#file-upload(type='file' name='images' accept='image/*' multiple='multiple')
+        label#file-drag(for='file-upload')
+            img#file-image.hidden(src='#' alt='Preview')
+            #start
+                i.fa.fa-download(aria-hidden='true')
+                .text Add images (upto 15)
+                #notimage.hidden Please select an image
+                span#file-upload-btn.btn.btn-primary Select images
+            #response.hidden
+                #messages
+                progress#file-progress.progress(value='0')
+                    span 0
+                    | %
+        .button__section            
+            button.btn.btn-primary(type='submit') Add images to home
+            a.btn(href='/allHomes') Skip            

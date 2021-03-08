@@ -1,0 +1,26 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/style.css') 
+    link(rel='stylesheet' href='/static/css/deletePage.css') 
+    link(rel='stylesheet' href='/static/css/alert.css') 
+
+block header 
+    include _header
+
+block content 
+    .container.shadow.deletePage
+        if(homeId)
+            h2 Are you sure want to delete this home?
+            p
+                | This action can&apos;t be undone. When you delete all home details will be erased from our system.
+            .options__section
+                a.option--delete.home__option--delete(data-id=homeId) Delete
+                a.option--cancel(href='/allHomes') Cancel
+        else 
+            h2 Are you sure want to delete your account?
+            p
+                | This action can&apos;t be undone. When you delete all your details will be erased from our system.
+            .options__section
+                a.option--delete.user__option--delete Delete
+                a.option--cancel(href='/settings') Cancel

@@ -1,0 +1,22 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/login.css')
+
+block content
+    .container
+        h1 #{page}
+        
+        form.form.form--login
+            .card
+                .row
+                    label(for="email") Email
+                    input(type="text" id="email")
+                .row
+                    label(for="password") Password
+                    input(type="password" id="password")
+                a.forget__password(href="/forget-password") Forgot Password?
+                button.signin-btn Login
+                .hr-line
+                p.center.grey-text New User? &nbsp
+                    a(href='/signup' style="color: #0483a5; text-decoration: none") Sign Up

@@ -1,0 +1,33 @@
+.alert {
+    width: 50%;
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 5px;
+    border-color: transparent;
+    position: sticky;
+    /* position: fixed; */
+    top: 0;
+    /* left: 50%; */
+    z-index: 500;
+  }
+
+  .alert-success {
+    background-color: #309259;
+    box-shadow: 0 18px 40px -12px  #309259;
+  }
+
+  .alert-failed {
+    background-color: #e13f3e;
+    box-shadow: 0 18px 40px -12px  #e13f3e;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .alert {
+      width: 80%;
+      font-size: 1.2rem;
+      padding: .5rem;
+    }
+  }

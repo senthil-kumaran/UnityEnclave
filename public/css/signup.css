@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 67.5%;
+  }
+  
+  body {
+    /* background: linear-gradient(
+      to right,
+      #0483a5, #069693
+    ); */
+  }
+  
+  h1, h2 {
+    color: #0483a5;
+  }
+
+  .container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .container h1 {
+    font-size: 2.6rem;
+    margin-bottom: 2rem;
+  }
+  
+  .container h2 {
+    font-size: 2rem;
+  }
+  
+  .container h1, h2 {
+     text-align: center;
+  }
+  
+  label {
+    display: block;
+  }
+  
+  .card {
+    width: 70%;
+    margin: 2rem auto;
+    color: black;
+    font-size: 1.6rem;
+    background-color: #ebecf0;
+    padding: 2rem;
+    display: grid;
+    grid-row-gap: 2rem;
+  }
+  
+@media only screen and (max-width: 600px) {
+   .container {
+    width: 100%;
+    margin: 0;
+    padding: 2rem;
+  }
+   .card {
+     width: 100%;
+     margin: 2rem 0;
+  }
+}
+
+  .row input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: .7rem;
+    margin-top: .7rem;
+  }
+  
+  .row input[type="text"]:focus, input[type="password"]:focus {
+    border: 2px solid #0483a5;
+  }
+  
+  .signin-btn {
+    padding: 1rem;
+    background-color: #0483a5;
+    border: none;
+    color: #ffffff;
+    margin-top: 2rem;
+  }
+  
+  .hr-line {
+    height: .05rem;
+    width: 100%;
+    background-color: grey;
+  }
+  
+  .google-btn {
+    background-color: #db4a39;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  .grey-text {
+    color: grey;
+  }
+  
+  .container h1, h2 {
+   letter-spacing: .14rem;
+  }
+
+  /* .alert {
+    width: 35%;
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 5px;
+    border-color: transparent;
+  }
+
+  .alert-success {
+    background-color: #309259;
+    box-shadow: 0 18px 40px -12px  #309259;
+  }
+
+  .alert-failed {
+    background-color: #e13f3e;
+    box-shadow: 0 18px 40px -12px  #e13f3e;
+  } */
+  
+  p, a {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Styles for edit profile page */
+  .photoSection {
+    justify-self: center;
+    display: grid;
+    justify-items: center;
+  }
+
+  #profile__photo {
+    width: 8rem;
+  }
+
+  .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.custom-file-upload:hover {
+  background-color: #0E76A8;
+  color: #ffffff;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload p {
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+.mb {
+  margin-bottom: .5rem;
+}

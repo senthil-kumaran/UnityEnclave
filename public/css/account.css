@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    background-color: rgb(63, 39, 39);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    padding: 2rem;
+    margin: 2rem;
+    font-size: 2rem;
+    width: 90%;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 6rem;
+    background: linear-gradient(to right, #9c7973, #7c4350);
+}
+
+label, button {
+    display: block;
+}
+
+li {
+    list-style: none;
+    color: #FFFFFF;
+}
+
+input {
+    background-color: #eee;
+    width: 50%;
+    padding: .4rem;
+    display: block;
+}
+
+
+.update, .update--password {
+    padding: .4rem;
+    margin-top: 2rem;
+}
+
+.password__content {
+    grid-column: 2;
+}
+
+.alert {
+    width: 35%;
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 5px;
+    border-color: transparent;
+    z-index: 10;
+  }
+
+  .alert-success {
+    background-color: #309259;
+    box-shadow: 0 18px 40px -12px  #309259;
+  }
+
+  .alert-failed {
+    background-color: #e13f3e;
+    box-shadow: 0 18px 40px -12px  #e13f3e;
+  }
+
+.profile__picture {
+    display: inline-block;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.photo__input {
+    /* display: inline-block; */
+    display: block;
+    width: 12rem;
+}

@@ -1,0 +1,11 @@
+extends base
+
+block linkcontent
+    link(rel='stylesheet' href='/static/css/notFound.css')    
+
+block content
+    #main
+        .container
+            h1 Error #{errorCode}
+            if message
+                p= message
