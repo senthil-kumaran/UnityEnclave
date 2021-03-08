@@ -10,6 +10,6 @@ export const deleteImage = async (data) => {
          
         location.reload(true)
     } catch(err) {
-        console.log(err)
+        
     }
 }

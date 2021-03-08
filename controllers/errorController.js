@@ -8,8 +8,6 @@ const handleCastErrorDB = err => {
 
 const handleDuplicateErrorDB = err => {
     const errorField = Object.values(err.keyValue)
-    console.log({errorField})
-    // return new AppError(`${errorField} is already in use!`, 400)
     return new AppError('This email is already in use!', 400)
 }
 
@@ -17,35 +15,22 @@ const handleValidationErrorDB = err => {
     const arrOfErrors = Object.values(err.errors)
     const arrOfErrMsg = arrOfErrors.map(error => error.message)
     const message = arrOfErrMsg.join('. ')
-    // const message = 'Invalid data - Please check the input data provided'
-    console.log({arrOfErrors})
-    console.log({arrOfErrMsg})
-    console.log({message})
-
+    
     return new AppError(message, 400)
 }
 
 const handleMulterError = () => {
-    // req.errorInfo.errorCode = 400
-    // req.errorInfo.message = 'Maximum of 15 images can be uploaded'
-    // res.redirect('/error')
     return new AppError('Maximum of 15 images can be uploaded', 400)
 } 
 
 const handleLogInError = () => {
-    // Handles token invalid and JWT malformed error
-    // req.errorInfo.errorCode = 400
-    // req.errorInfo.message = 'Please log in to continue'
-    // res.redirect('/error')
     return new AppError('Please log in to continue', 401)
 }
 
 const sendErrorDev = (req, res, err) => {
-    console.log(err.message)
     if (!err.operational)
         err.errorCode = 500
 
-        console.log(req.originalUrl)
     if (req.originalUrl.startsWith('/api')) {
         return res.status(err.errorCode).json({
             status: err.errorStatus,
@@ -63,7 +48,6 @@ const sendErrorDev = (req, res, err) => {
 }
 
 const sendErrorProd = (res, err) => {
-    console.log({err})
     if(err.render) {
         return res.status(err.errorCode).render('error', {
             page: 'Invalid request',
@@ -83,7 +67,6 @@ const sendErrorProd = (res, err) => {
     }
     // Non operational or unknown errors, send a generic res to client
     else {
-        console.log('Error : ', err)
         return res.status(500).json({
             status: err.errorStatus,
             data: {
@@ -94,16 +77,11 @@ const sendErrorProd = (res, err) => {
 }
 
 module.exports = (err, req, res, next) => {
-    console.log(`In global error handler - ${err}`)
-
     if (process.env.NODE_ENV === 'development') {
         sendErrorDev(req, res, err)
     } else if (process.env.NODE_ENV === 'production') {
         let error = { ...err }
-        // let error = Object.assign(err)
         error.name = err.name
-        console.log({err})
-        console.log({error})
 
         if (error.name === 'CastError') // ODM (Mongoose error) 
             error = handleCastErrorDB(error)
@@ -127,8 +105,6 @@ module.exports = (err, req, res, next) => {
             error = new AppError(error.errorMessage, 401)
             error.render = true
         }
-        // else if(error.errorMessage === 'Password entered is not correct')
-        //     error.sendAPIResponse = true 
             
         sendErrorProd(res, error)
     }

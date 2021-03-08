@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema({
     passwordChangedAt: Date,
     role: {
         type: String,
-        enum: ['user', 'home_owner', 'admin', 'super_user', 'president'],  // other than these options error is sent as response - pending
+        enum: ['user', 'home_owner', 'admin', 'super_user', 'president'],  
         default: 'user'
     },
     passwordResetToken: String,
@@ -64,45 +64,30 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-// Both pre and post hooks need to be added to the schema before registering the model in the file.
 //pre hook
 userSchema.pre('save', async function(next) {
-    console.log('In save pre hook')
     if(!this.isModified('password'))
         return next()
 
     this.password = await bcrypt.hash(this.password, 10)
     this.confirmPassword = undefined
     this.passwordChangedAt = Date.now() - 1000
-    next() // just like any other m/w use next()
+    next() 
 })
-
-/* Not necessary as of now 
-
-userSchema.pre(/^find/, async function(next) {
-    console.log('In find pre hook')
-    next()
-})
-
-*/
 
 // Instance method
 userSchema.methods.correctPassword = async (candidatePassword, userPassword) => {
-    console.log('In crt pwd mtd')
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 
 userSchema.methods.changedPassword = function(JWTTimeStamp) {
-    console.log('In changed pwd mtd')
-    let passwordUpdatedTime = this.passwordChangedAt.getTime() / 1000 // Produce float value
+    let passwordUpdatedTime = this.passwordChangedAt.getTime() / 1000 
     passwordUpdatedTime = parseInt(passwordUpdatedTime)
    
     return passwordUpdatedTime > JWTTimeStamp
 }
 
 userSchema.methods.createPasswordResetToken = function() {
-    console.log('In pwd reset mtd')
-    // const resetToken = crypto.randomBytes(32).toString('hex')
     const resetToken = crypto.randomBytes(8).toString('hex')
 
     this.passwordResetToken = crypto.createHash('sha256').update(resetToken).digest('hex')

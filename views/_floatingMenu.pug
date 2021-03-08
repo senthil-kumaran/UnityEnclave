@@ -2,7 +2,6 @@
     .flex
         img(src='/static/image/home_menu.svg' alt='Home icon')
         img(src='/static/image/add-circle-outline.svg' alt='Add icon')
-        //- img(src='/static/image/avatar.svg' alt='Profile icon')
         if user
           img(src=`/static/img/users/${user.photo}` style='border-radius: 50%' alt='Profile icon')
         else

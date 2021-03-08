@@ -18,14 +18,10 @@ const multerFilter = (req, file, callback) => {
 }
 
 exports.resizeHomeImage = catchAsync(async (req, res, next) => {
-    console.log('In resize Img')
-    console.log(req.files)
-    console.log(req.file)
-    
     if (!req.files)
         return next()
 
-    req.body.images = []  // .body - IMP
+    req.body.images = []  
 
         await Promise.all(req.files.map(async (image, i) => {
             const fileName = `home-${req.params.id}-${Date.now()}-${i+1}.jpeg`
@@ -48,10 +44,8 @@ const upload = multer({
 })
 
 exports.uploadHomeImages = upload.array('images', 15)
-// exports.uploadHomeImages = upload.single('images')
 
 exports.getAllHomes = catchAsync(async (req, res, next) => {
-    console.log('In getAllHomes')
     const homes = await homeModel.find({ active: true })
 
     res.status(200).json({
@@ -69,23 +63,8 @@ exports.setUserId = catchAsync(async (req, res, next) => {
     next()
 })
 
-// const isHomePresent = catchAsync(async (block, flatnumber) => {
-//     console.log('In ishomepresent')
-//     const doorNumber = block + flatnumber
-//     return await homeModel.find({ doorNumber: doorNumber })
-   
-// })
-
 exports.addHome = catchAsync(async (req, res, next) => {
-    console.log('In addHome')
     const { userId, flatNumber, block, floor, bedRoom, bathRoom, rent, advance, family, food, negotiable } = req.body
-    
-    // const alreadyPresent = await isHomePresent(block, flatNumber)
-    // console.log({alreadyPresent})
-    
-    // if(alreadyPresent) {
-    //     return next(new AppError('Home already exists', 400))
-    // }
 
     const home = await homeModel.create({
         userId,
@@ -110,7 +89,6 @@ exports.addHome = catchAsync(async (req, res, next) => {
 })
 
 exports.getHome = catchAsync(async (req, res, next) => {
-    console.log('In Get Home')
     const homeId = req.params.id
 
     const home = await homeModel.findById(homeId)
@@ -145,10 +123,8 @@ exports.updateHome = catchAsync(async (req, res, next) => {
 })
 
 exports.deleteHome = catchAsync(async (req, res, next) => {
-    console.log('In deleteHome')
     const homeId = req.params.id
 
-    // const home = await homeModel.findByIdAndDelete(homeId) //returns the matched document
     const home = await homeModel.findByIdAndUpdate(homeId, { active: false })
 
     if (!home)
@@ -165,14 +141,8 @@ exports.deleteHome = catchAsync(async (req, res, next) => {
 exports.uploadHomeImagesMiddleware = catchAsync(async (req, res, next) => {
     const homeId = req.params.id
     const newImages = req.body.images
-    console.log('HERE')
-    console.log(newImages)
 
     const home = await homeModel.findById(homeId)
-    // const home = await homeModel.findByIdAndUpdate(homeId, { images }, {
-    //     new: true,
-    //     runValidators: true
-    // })
 
     if (!home)
         return next(new AppError('No such home exists', 404))
@@ -191,28 +161,19 @@ exports.uploadHomeImagesMiddleware = catchAsync(async (req, res, next) => {
         runValidators: true
     })
 
-    // next()
     res.redirect('/allHomes')
 })
  
 exports.deleteHomeImagesInFileSystem = catchAsync(async (req, res, next) => {
-    console.log('In delete home images')
     const { imageFileName } = req.body
     const filePath = `${__dirname}/../public/img/homes/${imageFileName}`
     await fs.unlink(filePath)
 
-    // res.status(204).json({
-    //     status: 'success',
-    //     data: null
-    // })
     next()
 })
 
 exports.deleteHomeImagesInDB = catchAsync(async (req, res, next) => {
-    console.log('In delete home images in DB')
-
     const { imageFileName, homeId } = req.body
-    console.log({homeId})
     let home = await homeModel.findById(homeId)
 
     const newListOfImages = home.images.filter(image => image !== imageFileName )

@@ -57,8 +57,6 @@ app.use('/', viewRouter)
 app.use('/api/v1/users', userRouter) 
 app.use('/api/v1/homes', homeRouter)
 
-// app.use('/api/v2/features', featureRouter) 
-
 app.use(globalErrorHandler)
 
 app.get('*', (req, res) => {

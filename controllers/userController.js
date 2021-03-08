@@ -6,16 +6,6 @@ const userModel = require('../model/userModel')
 const AppError = require('../utils/appError')
 const catchAsync = require('../utils/catchAsync')
 
-// const multerStorage = multer.diskStorage({
-//     destination: (req, file, callback) => {
-//         callback(null, 'public/img/users')
-//     },
-//     filename: (req, file, callback) => {
-//         const ext = file.mimetype.split('/')[1]
-//         callback(null, `${req.user.id}-${Date.now()}.${ext}`)
-//     }
-// })
-
 const multerStorage = multer.memoryStorage()
 
 const multerFilter = (req, file, callback) => {
@@ -60,8 +50,6 @@ const filterObject = (payload, ...allowedFields) => {
 }
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-    console.log('In updateMe')
-        
       if (req.body.password || req.body.confirmPassword)
         return next(new AppError('Password update is not supported here. Please check the updatePassword route', 400))
 
@@ -75,7 +63,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
           runValidators: true
         })
 
-        // sendToken(res, 201, updatedUser, 'Updated successfully')
         res.status(201).json({
             status: 'success',   
             data: {
@@ -86,13 +73,11 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 })
 
 exports.deleteMe = catchAsync(async (req, res, next) => {
-        console.log('In deleteMe')
         const userId = req.user.id
 
         await userModel.findByIdAndUpdate(userId, { active: false })
         
         const homes = await homeModel.find({ userId }).select('+active')
-        console.log(homes)
         homes.forEach(async home => {
             home.active = false
             await home.save()
@@ -113,7 +98,6 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 })
 
 exports.populateHomesByUserId = catchAsync(async (req, res, next) => {
-    console.log('In populateHomesByUserId')
     const userId = req.user.id
 
     const homes = await homeModel.find({
@@ -122,11 +106,6 @@ exports.populateHomesByUserId = catchAsync(async (req, res, next) => {
     })
 
     res.locals.homes = homes
-    // res.status(200).json({
-    //     status: 'success',
-    //     data: {
-    //         homes
-    //     }
-    // })
+    
     next() 
 })

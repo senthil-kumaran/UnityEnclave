@@ -8524,15 +8524,14 @@ var logout = /*#__PURE__*/function () {
               location.assign('/allHomes');
             }
 
-            _context2.next = 10;
+            _context2.next = 9;
             break;
 
           case 7:
             _context2.prev = 7;
             _context2.t0 = _context2["catch"](0);
-            console.log("Error in Logout - ".concat(_context2.t0));
 
-          case 10:
+          case 9:
           case "end":
             return _context2.stop();
         }
@@ -8595,22 +8594,11 @@ var AppError = /*#__PURE__*/function (_Error) {
 
 module.exports = AppError;
 },{}],"../../utils/catchAsync.js":[function(require,module,exports) {
-var AppError = require('./appError'); // module.exports = fn => {
-//     return (req, res, next) => {
-//         fn(req, res, next).catch(err => {
-//             return next(new AppError(err.message, 400))
-//     })
-// }
-// } 
-
+var AppError = require('./appError');
 
 module.exports = function (fn) {
   return function (req, res, next) {
     fn(req, res, next).catch(function (err) {
-      console.log("In catchAsync - ".concat(err));
-      console.log({
-        err: err
-      });
       return next(err);
     });
   };
@@ -8993,20 +8981,19 @@ var deleteAccount = /*#__PURE__*/function () {
             window.setTimeout(function () {
               location.assign('/allHomes');
             }, 1000);
-            _context2.next = 15;
+            _context2.next = 14;
             break;
 
           case 9:
             _context2.prev = 9;
             _context2.t0 = _context2["catch"](0);
-            console.log(_context2.t0);
             (0, _alert.showAlert)('failed', _context2.t0.response.data.data.message.errorMessage);
             window.setTimeout(_alert.removeAlert, 3000);
             window.setTimeout(function () {
               location.assign('/settings');
             }, 1000);
 
-          case 15:
+          case 14:
           case "end":
             return _context2.stop();
         }
@@ -9230,15 +9217,14 @@ var deleteImage = /*#__PURE__*/function () {
           case 3:
             res = _context.sent;
             location.reload(true);
-            _context.next = 10;
+            _context.next = 9;
             break;
 
           case 7:
             _context.prev = 7;
             _context.t0 = _context["catch"](0);
-            console.log(_context.t0);
 
-          case 10:
+          case 9:
           case "end":
             return _context.stop();
         }

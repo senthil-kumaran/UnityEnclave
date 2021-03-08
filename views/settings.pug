@@ -36,10 +36,7 @@ block content
                         img(src="/static/image/home-outline.svg", alt="Home icon" class="home__icon")
                         p.block #{home.block}-
                         p.flatNumber #{home.flatNumber}
-                        //- p.rent #{home.rent}
-                        //- p.advance #{home.advance}
                         img.flex--last(src="/static/image/create-outline.svg", alt="Edit icon", class='home__list--icon')
-                    //- hr
         p(style='margin-bottom: .5rem;') Other settings
         .other__settings.shadow.mb.card__outline
             #tmp
@@ -58,7 +55,6 @@ block content
                         label.label(for='confirm__password')
                             span.label--content Confirm Password
                     .section__buttons
-                        //- button.forgot Forgot password?
                         a.forgot(href="/forget-password") Forgot password?
                         button.save Save changes
             button.collapsible.support Support

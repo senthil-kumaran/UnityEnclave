@@ -43,7 +43,6 @@ export const deleteAccount = async () => {
         }, 1000)
 
     } catch(err) {
-        console.log(err)
         showAlert('failed', err.response.data.data.message.errorMessage)
         window.setTimeout(removeAlert, 3000) 
         window.setTimeout(() => {

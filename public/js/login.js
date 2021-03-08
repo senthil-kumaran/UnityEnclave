@@ -40,6 +40,6 @@ export const logout = async () => {
         }
 
     } catch(err) {
-        console.log(`Error in Logout - ${err}`)
+
     }
 }

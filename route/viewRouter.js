@@ -19,7 +19,6 @@ router.get('/addHome/page2', authController.protectRoute, viewController.addHome
 router.get('/addHome/page3/:id', authController.protectRoute, viewController.addHomePage3) 
 
 router.get('/settings', authController.protectRoute, userController.populateHomesByUserId, viewController.settings) 
-router.post('/submit-user-data', authController.protectRoute, viewController.updateMe) 
 router.get('/home/:id', authController.protectRoute, viewController.homeProfile)
 router.get('/edit-profile', authController.protectRoute, viewController.userProfile)
 router.get('/edit-home/page1/:id', authController.protectRoute, viewController.editHomePage1)

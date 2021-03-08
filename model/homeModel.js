@@ -4,7 +4,6 @@ const homeSchema = new mongoose.Schema({
     userId: {
         type: mongoose.Schema.ObjectId,
         ref: 'users',
-        // required: true
     },
     block: {
         type: String,
@@ -44,7 +43,7 @@ const homeSchema = new mongoose.Schema({
     negotiable: Boolean,
     furnished: {
         type: String,
-        enum: ['NA', 'semi-furnished', 'furnished'],  // other than these options error is sent as response - pending
+        enum: ['NA', 'semi-furnished', 'furnished'],
         default: 'NA'
     },
     family: Boolean,
@@ -60,16 +59,9 @@ const homeSchema = new mongoose.Schema({
 })
 
 homeSchema.pre(/^find/, function(next) {  
-    // this.find({ active: true })
     this.populate('userId')
-    // this.find({ userId:{ active: true } })
     next()
 })
-
-// homeSchema.pre(/^find/, function(next) {
-//     this.find({  })
-//     next()
-// })
 
 homeSchema.pre('save', async function(next) {
     this.doorNumber = this.block + this.flatNumber
@@ -77,15 +69,8 @@ homeSchema.pre('save', async function(next) {
     this.advanceInINRFormat = this.advance.toLocaleString('en-IN')
 })
 
-// homeSchema.pre('findOneAndUpdate', function(next) {
-//     this.rentInINRFormat = this.rent.toLocaleString('en-IN')
-//     this.advanceInINRFormat = this.advance.toLocaleString('en-IN')
-// })
-
 homeSchema.post('findOneAndUpdate', async function() {
-    console.log('In new m/w - POST')
-    // explicit query
-    const home = await this.model.findOne(this.getFilter()) //getQuery is deprecated
+    const home = await this.model.findOne(this.getFilter())
 
     if(home) {
         home.rentInINRFormat = home.rent.toLocaleString('en-IN')
