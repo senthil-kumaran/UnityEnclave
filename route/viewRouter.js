@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.use(authController.isLoggedIn)
 
-router.get('/overview', viewController.overview)
+router.get('/', viewController.overview)
 router.get('/signup', viewController.signup) 
 router.get('/login', viewController.login) 
 router.get('/forget-password', viewController.forgotPassword) 
