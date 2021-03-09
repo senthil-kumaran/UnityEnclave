@@ -9,11 +9,11 @@ const router = express.Router()
 
 router.use(authController.isLoggedIn)
 
-// //CORS
-// //ACCESS-CONTROL-ALLOW-ORIGIN
-// router.get('/', cors({
-//     origin: ['https://www.google.com/maps', 'https://www.youtube.com/']
-// }), viewController.overview)
+//CORS
+//ACCESS-CONTROL-ALLOW-ORIGIN
+router.get('/', cors({
+    origin: ['https://www.google.com/maps', 'https://www.youtube.com/']
+}), viewController.overview)
 
 router.get('/', viewController.overview)
 router.get('/signup', viewController.signup) 
