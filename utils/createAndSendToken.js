@@ -12,7 +12,7 @@ exports.sendToken = (req, res, statusCode, token, user, message) => {
         // expires: process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000,
         expires: new Date(Date.now() + process.env.COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),  //In JS for date we need to specify new Date (also see above line mistake)
         httpOnly: true,
-        secure = req.secure || req.headers['x-forwarded-proto'] === 'https'
+        secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
     } 
 
     res.cookie('jwt', token, cookieOption)
