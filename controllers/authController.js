@@ -27,7 +27,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
     const url = `${req.protocol}://${req.get('host')}/settings`
     await new Email(user, url).sendWelcome()
 
-    sendToken(res, 201, token, user)
+    sendToken(req, res, 201, token, user)
 })
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -48,7 +48,7 @@ exports.login = catchAsync(async (req, res, next) => {
     
     const token = await createToken(user._id)
     
-    sendToken(res, 200, token)
+    sendToken(req, res, 200, token)
 })
 
 exports.logout = (req, res) => {
@@ -75,7 +75,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     
     const token = await createToken(currentUser._id)
     
-    sendToken(res, 200, token, currentUser, 'Password updated successfully!')
+    sendToken(req, res, 200, token, currentUser, 'Password updated successfully!')
 })
 
 exports.isLoggedIn = async (req, res, next) => {
@@ -205,5 +205,5 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     
     const jwtToken = await createToken(user._id)
         
-    sendToken(res, 200, token, user)
+    sendToken(req, res, 200, token, user)
 })
