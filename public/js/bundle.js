@@ -8615,6 +8615,7 @@ var AppError = require('./appError');
 module.exports = function (fn) {
   return function (req, res, next) {
     fn(req, res, next).catch(function (err) {
+      console.log("PORT ----> ".concat(undefined));
       console.log("ERROR ________ ".concat(err));
       return next(err);
     });
