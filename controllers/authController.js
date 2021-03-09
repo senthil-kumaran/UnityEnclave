@@ -10,7 +10,7 @@ const { createToken, sendToken } = require('../utils/createAndSendToken')
 
 exports.signUp = catchAsync(async (req, res, next) => {
     const { firstName, lastName, phone1, phone2, email, password, confirmPassword, role } = req.body
-
+    console.log('Befor create')
     const user = await userModel.create({
         firstName,
         lastName,
@@ -21,6 +21,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
         confirmPassword,
         role
     })
+    console.log('after create')
 
     const token = await createToken(user._id)
 
