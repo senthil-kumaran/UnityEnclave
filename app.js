@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser')
 const { urlencoded } = require('express')
 const hpp = require('hpp')
 const compression = require('compression')
+const cors = require('cors')
 
 const userRouter = require('./route/userRouter')
 const homeRouter = require('./route/homeRouter')
@@ -51,6 +52,8 @@ app.use(urlencoded({ extended: true, limit: '10kb' }))
 app.use(hpp())
 
 app.use(compression()) 
+
+app.use(cors())
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(`${__dirname}/views`)) 
