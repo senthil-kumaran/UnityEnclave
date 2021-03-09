@@ -16,7 +16,7 @@ block content
             p.grey of &nbsp 3
         h2.steps(style='margin-top: 1.5rem;')
             p Upload your home images or skip.
-    form#file-upload-form.uploader(action=`http://127.0.0.1:8000/api/v1/homes/upload-home-images/${homeId}` method='POST' enctype='multipart/form-data')
+    form#file-upload-form.uploader(action=`/api/v1/homes/upload-home-images/${homeId}` method='POST' enctype='multipart/form-data')
         input#file-upload(type='file' name='images' accept='image/*' multiple='multiple')
         label#file-drag(for='file-upload')
             img#file-image.hidden(src='#' alt='Preview')
