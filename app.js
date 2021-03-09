@@ -19,6 +19,9 @@ const globalErrorHandler = require('./controllers/errorController')
  
 const app = express()
 
+//HEROKU PROXY
+app.enable('trust proxy')
+
 //SECURITY HEADERS -NPM PACKAGE
 app.use(helmet())
 
