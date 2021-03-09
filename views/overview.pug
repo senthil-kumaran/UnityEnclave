@@ -3,6 +3,8 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv="Content-Security-Policy" content="script-src 'self' maps.googleapis.com;")
+  meta(http-equiv="Content-Security-Policy" content="frame-src 'self' youtube.com;")
   title SBIOA Unity Enclave
   link(rel='stylesheet' href='/static/css/overview.css')
 header
@@ -62,9 +64,7 @@ main
         button#video--btn Video
         button#gallery--btn Gallery
       .media__section
-        //- iframe(src='//www.youtube.com/embed/xNheZ3_pU6Y' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
-        //- iframe(width='320' height='180' src='https://www.youtube.com/embed/C0DPdy98e4c?autoplay=1' frameborder='1' allowfullscreen allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen')
-        iframe(src="https://www.youtube.com/embed/YveTWqicTN4" width="1263" height="480" csp="script-src https://www.youtube.com" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+        iframe(src='https://www.youtube.com/embed/xNheZ3_pU6Y' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
       .gallery__section
         .gallery--grid
           figure
