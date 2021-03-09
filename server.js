@@ -16,7 +16,8 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, '💥 FROM DB EVENT - MongoDB connection error:'));
 
-const server = app.listen(process.env.PORT, () => {
+const port = process.env.PORT || 3000;
+const server = app.listen(port, () => {
     console.log(`Server started at ${process.env.PORT}`)
 })
 
