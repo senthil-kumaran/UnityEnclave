@@ -16,7 +16,7 @@ block content
                 .image__section
                     img.home__image(src=`/static/img/homes/${image}` alt='Home image' data-id=image)
                     button.btn--delete.delete--link.image__delete--btn(data-id=image style="margin-top: 1rem;") Delete
-    form#file-upload-form.uploader.align--left(action=`http://127.0.0.1:8000/api/v1/homes/upload-home-images/${home.id}` method='POST' enctype='multipart/form-data')
+    form#file-upload-form.uploader.align--left(action=`/api/v1/homes/upload-home-images/${home.id}` method='POST' enctype='multipart/form-data')
         input#file-upload(type='file' name='images' accept='image/*' multiple='multiple')
         label#file-drag(for='file-upload')
             img#file-image.hidden(src='#' alt='Preview')
