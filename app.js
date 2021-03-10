@@ -54,6 +54,14 @@ app.use(hpp())
 app.use(compression()) 
 
 // app.use(cors())
+app.use((req, res, next) => {
+    res.setHeader(
+      'Content-Security-Policy',
+      "script-src 'self' https://maps.googleapis.com;",
+      "frame-src 'self' https://www.youtube.com;"
+    );
+    next();
+});
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(`${__dirname}/views`)) 
