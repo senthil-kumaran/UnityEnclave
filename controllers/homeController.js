@@ -27,6 +27,7 @@ exports.resizeHomeImage = catchAsync(async (req, res, next) => {
             const fileName = `home-${req.params.id}-${Date.now()}-${i+1}.jpeg`
     
             await sharp(image.buffer)
+                .rotate()
                 .resize(2000, 1333)
                 .toFormat('jpeg')
                 .jpeg({ quality: 90 })
