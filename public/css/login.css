@@ -122,6 +122,10 @@
     box-shadow: 0 18px 40px -12px  #e13f3e;
   }
   
+  .forget__password {
+    text-decoration: none;
+  }
+
   @media only screen and (max-width: 600px) {
     .container {
      width: 100%;
