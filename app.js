@@ -10,7 +10,6 @@ const cookieParser = require('cookie-parser')
 const { urlencoded } = require('express')
 const hpp = require('hpp')
 const compression = require('compression')
-const cors = require('cors')
 
 const userRouter = require('./route/userRouter')
 const homeRouter = require('./route/homeRouter')
@@ -53,7 +52,6 @@ app.use(hpp())
 
 app.use(compression()) 
 
-// app.use(cors())
 app.use((req, res, next) => {
     res.setHeader(
       'Content-Security-Policy',
