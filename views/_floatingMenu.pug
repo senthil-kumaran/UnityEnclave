@@ -1,8 +1,9 @@
-.floating__menu
-    .flex
-        img(src='/static/image/home_menu.svg' alt='Home icon')
-        img(src='/static/image/add-circle-outline.svg' alt='Add icon')
-        if user
+if user
+  .floating__menu
+      .flex
+        a(href='/allHomes')
+          img(src='/static/image/home_menu.svg' alt='Home icon')
+        a(href='/addHome/page1')
+          img(src='/static/image/add-circle-outline.svg' alt='Add icon')
+        a(href='/settings')
           img(src=`/static/img/users/${user.photo}` style='border-radius: 50%' alt='Profile icon')
-        else
-          img(src='/static/image/avatar.svg' alt='Profile icon')

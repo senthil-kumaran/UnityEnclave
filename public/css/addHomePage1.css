@@ -19,11 +19,15 @@ body {
 }
 
 .wrapping--container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     padding-top: 3.2rem; 
+    display: grid;
+    justify-items: center;
+    width: 90%;
+    margin: 0 auto;
 }
 
 h1 {
@@ -45,11 +49,13 @@ h2 p {
 
 .wrapper {
     overflow-y: visible;
+    width: 100%;
 }
 
 .addHome__form--page1, .editHome__form--page1 {
     display: grid;
-    width: 40vw;
+    /* width: 40vw; */
+    width: 100%;
     padding-top: 3rem;
     overflow-x: hidden;
     margin-bottom: 3rem;
@@ -126,15 +132,16 @@ input:required {
     border-radius: 5px;
     border-color: transparent;
     cursor: pointer;
+    outline: none;
 }
 
 @media only screen and (max-width: 600px) {
-    .addHome__form--page2 {
-        width: 70%;
+    .addHome__form--page1, .addHome__form--page2 {
+        /* width: 70%; */
     }
 
     .wrapping--container {
-        justify-content: start;
+        /* justify-content: start; */
     }
 }
 

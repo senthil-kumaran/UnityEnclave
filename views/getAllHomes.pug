@@ -10,6 +10,7 @@ block content
     .content__container
         if(poster)
             button.addYourHome.nav__logbtn Add your home
+        a(href='/overview').overview__btn Neighbourhood
         if(user && user.role === 'super_user')
             p Homes registered - #{homes.length}            
             a(href='/users' style='font-size: 1.8rem; text-decoration: none; color: #309259;') All users 

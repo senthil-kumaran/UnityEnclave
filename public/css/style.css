@@ -52,7 +52,7 @@ a {
   color: #0E76A8;
 }
 
-.nav__logbtn {
+.nav__logbtn, .overview__btn {
   color: #0E76A8;
   background-color: #ffffff;
   /* margin-right: 10rem; */
@@ -61,10 +61,14 @@ a {
   cursor: pointer;
 }
 
-.nav__logbtn:hover {
+.nav__logbtn:hover, .overview__btn{
   background-color: #0E76A8;
   color: #ffffff;
   border-color: transparent;
+}
+
+.overview__btn {
+  text-decoration: none;
 }
 
 .nav__username {
@@ -214,6 +218,10 @@ td a:hover {
   width: 3rem;
 }
 
+.floating__menu .flex a {
+  text-decoration: none;
+}
+
 /* typography */
 p {
   font-size: 1.5rem;
@@ -238,5 +246,6 @@ p {
 
   .content__container {
     overflow-x: scroll;
+    position: relative;
   }
 }
