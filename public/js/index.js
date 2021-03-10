@@ -256,7 +256,7 @@ window.addEventListener('click', closeModalFromOutside)
 
 function openModal(e) {
     modal.style.display = 'block'
-    modalContentImage.src = e.originalTarget.src
+    modalContentImage.src = e.originalTarget.src || e.srcElement.src
 }
 
 function closeModal() {
