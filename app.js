@@ -53,7 +53,7 @@ app.use(hpp())
 
 app.use(compression()) 
 
-app.use(cors())
+// app.use(cors())
 
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(`${__dirname}/views`)) 
