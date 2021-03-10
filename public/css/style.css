@@ -61,14 +61,10 @@ a {
   cursor: pointer;
 }
 
-.nav__logbtn:hover, .overview__btn{
+.nav__logbtn:hover, .overview__btn:hover {
   background-color: #0E76A8;
   color: #ffffff;
   border-color: transparent;
-}
-
-.overview__btn {
-  text-decoration: none;
 }
 
 .nav__username {
@@ -193,7 +189,7 @@ td a:hover {
   color: orangered; 
 }
 
-.addYourHome {
+.addYourHome, .overview__btn {
   margin-top: 2.5rem;
 }
 
@@ -227,6 +223,17 @@ p {
   font-size: 1.5rem;
 }
 
+.content__container {
+  position: relative;
+}
+
+.overview__btn {
+  font-size: 13.333px;
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     padding: 1rem;
@@ -246,6 +253,9 @@ p {
 
   .content__container {
     overflow-x: scroll;
-    position: relative;
+  }
+
+  .overview__btn {
+    margin-right: .5rem;
   }
 }
