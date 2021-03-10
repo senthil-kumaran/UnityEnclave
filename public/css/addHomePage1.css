@@ -26,7 +26,7 @@ body {
     padding-top: 3.2rem; 
     display: grid;
     justify-items: center;
-    width: 90%;
+    width: 40vw;
     margin: 0 auto;
 }
 
@@ -142,6 +142,7 @@ input:required {
 
     .wrapping--container {
         /* justify-content: start; */
+        width: 90%;
     }
 }
 
