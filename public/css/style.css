@@ -224,6 +224,11 @@ p {
 }
 
 .content__container {
+  /* position: relative; */
+  margin-top: 7rem;
+}
+
+.content__header {
   position: relative;
 }
 
@@ -232,6 +237,11 @@ p {
   text-decoration: none;
   position: absolute;
   right: 0;
+}
+
+.addYourHome {
+  position: absolute;
+  left: 0
 }
 
 @media only screen and (max-width: 600px) {
@@ -253,6 +263,7 @@ p {
 
   .content__container {
     overflow-x: scroll;
+    margin-top: 3.5rem;
   }
 
   .overview__btn {

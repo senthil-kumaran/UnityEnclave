@@ -1,3 +1,39 @@
+//- extends base
+
+//- block header
+//-     include _header
+
+//- block marquee
+//-     include _marquee
+
+//- block content
+//-     .content__container
+//-         if(poster)
+//-             button.addYourHome.nav__logbtn Add your home
+//-         a(href='/').overview__btn Neighbourhood
+//-         if(user && user.role === 'super_user')
+//-             p Homes registered - #{homes.length}            
+//-             a(href='/users' style='font-size: 1.8rem; text-decoration: none; color: #309259;') All users 
+//-         table
+//-             tr
+//-                 th Owner Name
+//-                 th Flat
+//-                 th Rent
+//-                 th Advance
+//-                 th Action
+
+//-             each home in homes
+//-                 tr
+//-                     td #{home.userId.firstName} #{home.userId.lastName}
+//-                     td= home.doorNumber
+//-                     td= home.rentInINRFormat
+//-                     td= home.advanceInINRFormat
+//-                     td 
+//-                         a(href=`/home/${home.id}`) More Info  
+
+//- block footer 
+//-     include _floatingMenu 
+
 extends base
 
 block header
@@ -7,13 +43,14 @@ block marquee
     include _marquee
 
 block content
-    .content__container
+    .content__header
         if(poster)
             button.addYourHome.nav__logbtn Add your home
-        a(href='/').overview__btn Neighbourhood
-        if(user && user.role === 'super_user')
-            p Homes registered - #{homes.length}            
-            a(href='/users' style='font-size: 1.8rem; text-decoration: none; color: #309259;') All users 
+            a(href='/').overview__btn Neighbourhood
+            if(user && user.role === 'super_user')
+                p Homes registered - #{homes.length}            
+                a(href='/users' style='font-size: 1.8rem; text-decoration: none; color: #309259;') All users 
+    .content__container
         table
             tr
                 th Owner Name
@@ -24,7 +61,8 @@ block content
 
             each home in homes
                 tr
-                    td #{home.userId.firstName} #{home.userId.lastName}
+                    td 
+                        a(href=`/home/${home.id}`) #{home.userId.firstName} #{home.userId.lastName}
                     td= home.doorNumber
                     td= home.rentInINRFormat
                     td= home.advanceInINRFormat
