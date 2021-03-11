@@ -18,9 +18,10 @@ block content
         form.form--profileEdit
             .card
                 .row.photoSection 
-                    img.round.mb(src=`/static/img/users/${user.photo}`, alt='Profile picture' id='profile__photo')
-                    label.custom-file-upload(for='photo')
-                        p Change profile picture
+                    label(for='photo')
+                        img.round.mb(src=`/static/img/users/${user.photo}`, alt='Profile picture' id='profile__photo')
+                    label.custom-file-upload(for='photo' style="background-color: #0483a5;")
+                        p(style="color: #ffffff;") Change profile picture
                     input.file-upload(type='file', accept='image/*', name='photo', id='photo')
                 .row
                     label(for="firstName") First Name
