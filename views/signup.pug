@@ -15,13 +15,13 @@ block content
                     label First Name
                     input(type='text' id='firstName')
                 .row
-                    label Last Name
+                    label Last Name (Optional)
                     input(type='text' id='lastName')
                 .row
                     label Phone1
                     input(type='text' id='phone1')
                 .row
-                    label Phone2
+                    label Phone2 (Optional)
                     input(type='text' id='phone2')
                 .row
                     label Email
@@ -32,9 +32,9 @@ block content
                 .row
                     label Confirm Password
                     input(type='password' id='confirmPassword')
-                .row
+                .row.row--flex
                     input(type='checkbox' id='role' value='home_owner')
-                    label Select if you are an home owner
+                    label(for='role') Select if you are an home owner
 
                 button.signin-btn Join
 

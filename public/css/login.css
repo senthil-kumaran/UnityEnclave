@@ -58,6 +58,8 @@
   
   .row input[type="text"], input[type="password"] {
     width: 100%;
+    color: #0E76A8;
+    outline: none;
     padding: .7rem;
     margin-top: .7rem;
     transition: all .5s;
@@ -73,6 +75,7 @@
     border: none;
     color: #ffffff;
     margin-top: 2rem;
+    outline: none;
   }
   
   .hr-line {

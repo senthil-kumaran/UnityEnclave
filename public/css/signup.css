@@ -53,6 +53,11 @@
     grid-row-gap: 2rem;
   }
   
+  input {
+    color: #0E76A8;
+    outline: none;
+  }
+
 @media only screen and (max-width: 600px) {
    .container {
     width: 100%;
@@ -74,13 +79,22 @@
   .row input[type="text"]:focus, input[type="password"]:focus {
     border: 2px solid #0483a5;
   }
-  
+
+  .row--flex {
+    display: flex;
+  }
+
+  .row--flex input[type="checkbox"] {
+    margin-right: 1rem;
+  }
+
   .signin-btn {
     padding: 1rem;
     background-color: #0483a5;
     border: none;
     color: #ffffff;
     margin-top: 2rem;
+    outline: none;
   }
   
   .hr-line {
