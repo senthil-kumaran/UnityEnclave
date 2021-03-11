@@ -26,8 +26,8 @@
 
   @media only screen and (max-width: 600px) {
     .alert {
-      width: 80%;
-      font-size: 1.2rem;
-      padding: .5rem;
+      width: 90%;
+      font-size: 1.6rem;
+      padding: .8rem;
     }
   }
