@@ -77,6 +77,8 @@ const sendErrorProd = (res, err) => {
 }
 
 module.exports = (err, req, res, next) => {
+    console.log(`In Global Error Handler🍳🍳 - ${err}`)
+    
     if (process.env.NODE_ENV === 'development') {
         sendErrorDev(req, res, err)
     } else if (process.env.NODE_ENV === 'production') {
