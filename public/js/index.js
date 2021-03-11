@@ -255,9 +255,12 @@ if(closeModalButton) {
 window.addEventListener('click', closeModalFromOutside)
 
 function openModal(e) {
-    console.log(e)
     modal.style.display = 'block'
-    modalContentImage.src = e.originalTarget.src || e.target.baseURI
+    
+    if(e.originalTarget)
+        modalContentImage.src = e.originalTarget.src
+    else 
+        modalContentImage.src = e.target.attributes.src.nodeValue
 }
 
 function closeModal() {
