@@ -101,7 +101,7 @@
       cursor: pointer;
   }
   
-  .alert {
+  /* .alert {
     width: 35%;
     color: #ffffff;
     font-size: 2rem;
@@ -120,7 +120,7 @@
   .alert-failed {
     background-color: #e13f3e;
     box-shadow: 0 18px 40px -12px  #e13f3e;
-  }
+  } */
   
   .forget__password {
     text-decoration: none;

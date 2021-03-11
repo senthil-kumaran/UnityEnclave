@@ -219,7 +219,7 @@ input[type="file"] {
 }
 
 @media only screen and (max-width: 600px) {
-    .addHome__form--page2 {
+    .addHome__form--page2, .editHome__form--page2 {
         width: 70vw;
     }
 }
