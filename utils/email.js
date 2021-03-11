@@ -57,26 +57,3 @@ module.exports = class Email {
     await this.send('passwordReset', 'Password reset verification email')
   }
 }
-
-const sendEmail = async option => {
-    // const transportor = nodemailer.createTransport({
-    //     host: process.env.NODEMAILER_HOST,
-    //     port: process.env.NODEMAILER_PORT,
-    //     auth: {
-    //       user: process.env.NODEMAILER_USER,
-    //       pass: process.env.NODEMAILER_PASS
-    //     }
-    // });
-           
-    // const mailInfo = {
-    //         from: 'Senthil Kumaran <senkum@gmail.com>',
-    //         to: option.toEmail,
-    //         subject: option.subject,
-    //         text: option.message
-    //         // html:
-    // }
-
-    await transportor.sendMail(mailInfo)
-}
-
-// module.exports = sendEmail
