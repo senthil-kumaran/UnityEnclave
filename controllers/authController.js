@@ -40,7 +40,7 @@ exports.login = catchAsync(async (req, res, next) => {
     const user = await userModel.findOne({ email }).select('+password +active')   
     
     if(!user || !user.active)
-        return next(new AppError('No account with this email id', 400))
+        return next(new AppError('No account with this email', 400))
         
     //2) Verify the password entered
     if(!await user.correctPassword(password, user.password))
@@ -156,7 +156,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 
     // 2) Check if the email returns a user
     if(!user || !(user.active))
-        return next(new AppError('No user with this email id', 404))
+        return next(new AppError('No user with this email', 404))
 
     // 3) Generate a random token string
     const token = user.createPasswordResetToken()
