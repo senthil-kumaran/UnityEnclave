@@ -3,6 +3,7 @@ extends base
 block linkcontent
     link(rel='stylesheet' href='/static/css/style.css')
     link(rel='stylesheet' href='/static/css/homeProfile.css')
+    link(rel='stylesheet' href='/static/css/floating_menu.css')
 
 block header
     include _header
@@ -71,3 +72,6 @@ block content
             span.btn--close &times;
             .modal__image--wrapper
                 img#modal--image
+
+block footer 
+    include _floatingMenu

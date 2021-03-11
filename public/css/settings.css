@@ -26,6 +26,7 @@ body {
     grid-template-columns: repeat(2, max-content);
     align-items: center;
     column-gap: 1rem;
+    row-gap: 1rem;
 }
 
 .profile__picture {
@@ -53,6 +54,7 @@ body {
 
 .home__icon {
     width: 1.6rem;
+    margin-right: 1rem;
 }
 /* 
 .home__list {

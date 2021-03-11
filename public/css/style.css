@@ -193,31 +193,6 @@ td a:hover {
   margin-top: 2.5rem;
 }
 
-/* Footer */
-.floating__menu {
-  display: none;
-}
-
-.flex {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  z-index: 10;
-  padding: 1rem;
-  background-color: #ffffff;
-}
-
-.floating__menu img {
-  width: 3rem;
-}
-
-.floating__menu .flex a {
-  text-decoration: none;
-}
-
 /* typography */
 p {
   font-size: 1.5rem;
@@ -248,12 +223,6 @@ p {
   body {
     padding: 1rem;
     /* overflow: hidden; */
-  }
-
-  .floating__menu {
-    display: block;
-    background-color: transparent;
-    opacity: .8;
   }
 
   table {
