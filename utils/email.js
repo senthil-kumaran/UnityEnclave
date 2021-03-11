@@ -11,15 +11,15 @@ module.exports = class Email {
   }
 
   transporter() {
-    // if(process.env.NODE_ENV === 'production') {
-    //   return nodemailer.createTransport({
-    //     service: 'Mailgun',
-    //     auth: {  
-    //       API_KEY: '4de08e90-35554a05',
-    //       DOMAIN: ''
-    //     }
-    //   })
-    // }
+    if(process.env.NODE_ENV === 'production') {
+      return nodemailer.createTransport({
+        service: 'SendGrid',
+        auth: {  
+          user: process.env.SENDGRID_USERNAME,
+          pass: process.env.SENDGRID_PASSWORD
+        }
+      })
+    }
 
     return nodemailer.createTransport({
       host: process.env.NODEMAILER_HOST,
