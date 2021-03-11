@@ -24,8 +24,8 @@ exports.signUp = catchAsync(async (req, res, next) => {
 
     const token = await createToken(user._id)
 
-    // const url = `${req.protocol}://${req.get('host')}/settings`
-    // await new Email(user, url).sendWelcome()
+    const url = `${req.protocol}://${req.get('host')}/settings`
+    await new Email(user, url).sendWelcome()
 
     sendToken(req, res, 201, token, user)
 })
@@ -168,8 +168,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
         await new Email(user, token).sendPasswordReset()
     } catch(err) {
         user.passwordResetToken = undefined   
-        user.passwordResetExpiresIn = undefined
-
+        user.passwordResetExpiresIn = undefined 
         return next(new AppError('There is an error in sending the reset password email', 500))
     }
 
