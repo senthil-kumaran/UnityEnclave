@@ -152,10 +152,10 @@ exports.restrictTo = (...roles) => {
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
     // 1) Fetch the user by his/her email (req contains the email as sent by user)
-    const user = await userModel.findOne({ email: req.body.email })
+    const user = await userModel.findOne({ email: req.body.email }).select('+active')
 
     // 2) Check if the email returns a user
-    if(!user)
+    if(!user || !(user.active))
         return next(new AppError('No user with this email id', 404))
 
     // 3) Generate a random token string
