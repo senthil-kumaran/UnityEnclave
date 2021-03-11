@@ -283,6 +283,9 @@ p, b {
 
 .button__section a {
     font-size: 1.4rem;
+    text-align: center;
+    width: 12rem;
+    padding: 1rem;
 }
 
 .icon__info {
@@ -323,6 +326,13 @@ p, b {
     }
 
     .button__section a {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
+        width: 10rem;
+        padding: .8rem;
+        display: inline-block;
+    }
+
+    .button__section a:first-child {
+        margin-bottom: 1rem;
     }
 }
