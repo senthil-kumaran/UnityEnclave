@@ -299,6 +299,6 @@ const addImagesBtn = document.querySelector('.btn--loader')
 if(addImagesBtn) {
     addImagesBtn.addEventListener('click', () => {
         showLoader()
-        window.setTimeout(hideLoader, 5000)
+        window.setTimeout(hideLoader, 10000)
     })
 }
