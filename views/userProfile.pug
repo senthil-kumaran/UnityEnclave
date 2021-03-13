@@ -39,4 +39,11 @@ block content
                     label(for="email") Email
                     input(type='text' id='email' value=user.email)
 
+                .row.row--flex
+                    if user.role === 'home_owner'
+                        input(type='checkbox' id='role' value='home_owner' checked)
+                    else 
+                        input(type='checkbox' id='role' value='home_owner')
+                    label(for='role') Select if you are an home owner
+
                 button(type='submit').signin-btn Save changes
