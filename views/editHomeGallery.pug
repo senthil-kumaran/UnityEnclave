@@ -4,6 +4,7 @@ block linkcontent
     link(rel='stylesheet' href='/static/css/style.css')
     link(rel='stylesheet' href='/static/css/homeProfile.css')
     link(rel='stylesheet' href='/static/css/newStyle.css')
+    link(rel='stylesheet' href='/static/css/loader.css')
 
 block header 
     include _header
@@ -31,5 +32,7 @@ block content
                     span 0
                     | %
         .button__section            
-            button.btn.btn-primary(type='submit') Add new images
-            a.btn(href='/allHomes') Cancel            
+            button.btn.btn-primary.btn--loader(type='submit') Add new images
+            a.btn(href='/allHomes') Cancel
+        .container
+            .loader                
