@@ -155,8 +155,13 @@ h4 {
 
 .collapsible--content p {
     text-align: center;
-    color: #0E76A8;
     margin-top: .6rem;
+}
+
+.collapsible--content p a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #0E76A8;
 }
 
 .account__password--form input {
