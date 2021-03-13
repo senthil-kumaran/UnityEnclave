@@ -154,7 +154,7 @@ exports.uploadHomeImagesMiddleware = catchAsync(async (req, res, next) => {
         images.push(image)
     }); 
 
-    if(images.length >= 15)
+    if(images.length > 15)
         return next(new AppError('Maximum of 15 images can be uploaded', 400))
 
     await homeModel.findByIdAndUpdate(homeId, { images }, {
