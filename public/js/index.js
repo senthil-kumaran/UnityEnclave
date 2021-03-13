@@ -6,6 +6,7 @@ import { account, passwordChange, deleteAccount } from './account'
 import { forgotPassword, resetPassword } from './newAuthProtocol'
 import { updateUser } from './updateUser'
 import { deleteImage } from './gallery'
+import { showLoader, hideLoader } from './loader'
 
 // Navbar login button 
 const loginBtn = document.querySelector('.login')
@@ -164,6 +165,12 @@ if(profileEditForm) {
         form.append('email', document.getElementById('email').value)
         form.append('photo', document.getElementById('photo').files[0])
 
+        const ownerCheckBox = document.getElementById('role')
+        if(ownerCheckBox.checked)
+            form.append('role', 'home_owner')
+        else
+            form.append('role', 'user')
+            
         updateUser(form)
     })
 }
@@ -282,5 +289,16 @@ if(editGalleryContainer) {
             const homeId = editGalleryContainer.getAttribute('data-id')
             await deleteImage({ imageFileName, homeId })
         })
+    })
+}
+
+//loader
+//firefox have loader when user hits back.
+const addImagesBtn = document.querySelector('.btn--loader')
+
+if(addImagesBtn) {
+    addImagesBtn.addEventListener('click', () => {
+        showLoader()
+        window.setTimeout(hideLoader, 5000)
     })
 }
