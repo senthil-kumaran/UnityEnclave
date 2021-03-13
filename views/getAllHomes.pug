@@ -15,9 +15,6 @@ block content
         if(poster)
             button.addYourHome.nav__logbtn Add your home
             a(href='/').overview__btn Neighbourhood
-            if(user && user.role === 'super_user')
-                p Homes registered - #{homes.length}            
-                a(href='/users' style='font-size: 1.8rem; text-decoration: none; color: #309259;') All users 
     .content__container
         table
             tr
@@ -35,7 +32,10 @@ block content
                     td= home.rentInINRFormat
                     td= home.advanceInINRFormat
                     td 
-                        a(href=`/home/${home.id}`) More Info  
+                        a(href=`/home/${home.id}`) More Info 
+        if(user && user.role === 'super_user')
+                p Homes registered - #{homes.length}            
+                a(href='/users' style='font-size: 1.8rem; text-decoration: none; color: #309259;') All users                  
 
 block footer 
     include _floatingMenu                        
