@@ -121,7 +121,7 @@ exports.homeProfile = catchAsync(async (req, res) => {
     if(req.user.role === 'admin')
         admin = true
     if(req.user.role === 'super_user')
-    superUser = true
+        superUser = true
 
     res.status(200).render('homeProfile', {  
         page: 'Your Home',
