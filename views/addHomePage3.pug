@@ -4,6 +4,7 @@ block linkcontent
     link(rel='stylesheet' href='/static/css/style.css')
     link(rel='stylesheet' href='/static/css/addHomePage2.css')
     link(rel='stylesheet' href='/static/css/newStyle.css')
+    link(rel='stylesheet' href='/static/css/loader.css')
 
 block header
     include _header
@@ -16,7 +17,7 @@ block content
             p.grey of &nbsp 3
         h2.steps(style='margin-top: 1.5rem;')
             p Upload your home images or skip.
-    form#file-upload-form.uploader(action=`/api/v1/homes/upload-home-images/${homeId}` method='POST' enctype='multipart/form-data')
+    form#file-upload-form.uploader.form--loader(action=`/api/v1/homes/upload-home-images/${homeId}` method='POST' enctype='multipart/form-data')
         input#file-upload(type='file' name='images' accept='image/*' multiple='multiple')
         label#file-drag(for='file-upload')
             img#file-image.hidden(src='#' alt='Preview')
@@ -31,5 +32,7 @@ block content
                     span 0
                     | %
         .button__section            
-            button.btn.btn-primary(type='submit') Add images to home
-            a.btn(href='/allHomes') Skip            
+            button.btn.btn-primary.btn--loader(type='submit') Add images to home
+            a.btn(href='/allHomes') Skip
+        .container
+            .loader
