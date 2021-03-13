@@ -54,7 +54,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
       if (req.body.password || req.body.confirmPassword)
         return next(new AppError('Password update is not supported here. Please check the updatePassword route', 400))
 
-      const updateData = filterObject(req.body, "firstName", "lastName", "email", "phone1", "phone2")
+      const updateData = filterObject(req.body, "firstName", "lastName", "email", "phone1", "phone2", "role")
       
       if(req.file)
         updateData.photo = req.file.filename
