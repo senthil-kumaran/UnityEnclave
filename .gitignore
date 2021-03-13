@@ -3,5 +3,4 @@ node_modules/
 repo/
 .cache/
 .vscode/
-public/img/homes/
 public/img/users/
